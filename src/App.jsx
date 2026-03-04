@@ -5,23 +5,23 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-200 flex items-center justify-center p-4 font-sans">
-      <div className="relative w-90 h-147.5 bg-[#dbd9c6] rounded-b-[30px] rounded-t-lg border-r-4 border-b-4 border-[#b8b6a8] shadow-2xl">
+      <div className="relative w-90 h-148 bg-[#dbd9c6] rounded-b-[30px] rounded-t-lg border-r-4 border-b-4 border-[#b8b6a8] shadow-2xl">
         {/* Power switch */}
-        <div className="absolute -top-3 left-8 h-5 w-24 bg-[#c5c3b2] rounded-t border-t border-[#a5a394] shadow-[inset_0_1px_2px_rgba(0,0,0,0.1)]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-3 bg-[#b8b6a8] rounded-full border border-[#9e9c8b] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
+        <div className="absolute top-4 left-12 ">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-13 h-3.5 bg-[#b8b6a8] rounded-full border border-[#9e9c8b] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
             <div className="absolute inset-0 flex items-center justify-between px-1.5 text-[5px] font-bold text-[#8a8878] leading-none">
               <span className="drop-shadow-[0_1px_0_rgba(255,255,255,0.4)]">
-                ◀OFF
+                OFF
               </span>
               <span className="drop-shadow-[0_1px_0_rgba(255,255,255,0.4)]">
-                ON▶
+                ON
               </span>
             </div>
 
             {/* Sliding Switch */}
             <div
-              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-linear-to-b from-[#e8e6d5] via-[#dbd9c6] to-[#c5c3b2] rounded border border-[#999888] shadow-[0_1px_2px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.6)] cursor-pointer transition-all duration-150"
-              style={{ left: powerOn ? "52px" : "4px" }}
+              className="absolute top-1/2 -translate-y-1/2 w-7.5 h-[0.82rem] bg-linear-to-b from-[#e8e6d5] via-[#dbd9c6] to-[#c5c3b2] rounded-xl border border-[#999888] shadow-[0_1px_2px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.6)] cursor-pointer transition-all duration-150"
+              style={{ left: powerOn ? "21px" : "0px" }}
               onClick={() => setPowerOn(!powerOn)}
             >
               {/* Center ridge on knob */}
@@ -31,19 +31,19 @@ const App = () => {
         </div>
 
         {/* Screen Housing */}
-        <div className="mt-6 mx-5 p-5 bg-[#75748b] rounded-t-3xl rounded-b-xl border-b-4 border-[#5e5d72] shadow-inner relative">
+        <div className="mt-7 mx-5 p-5 bg-[#75748b] rounded-t-3xl rounded-b-xl border-b-4 border-[#5e5d72] shadow-inner relative">
           {/* Header */}
-          <div className="flex justify-between items-end mb-3 opacity-80">
-            <div className="flex gap-0.5">
-              <div className="h-1 w-6 bg-purple-400"></div>
-              <div className="h-1 w-6 bg-blue-400"></div>
+          <div className="flex justify-between items-center mb-3 opacity-80">
+            <div className="flex flex-col gap-0.5">
+              <div className="h-0.5 w-18 bg-purple-400"></div>
+              <div className="h-0.5 w-18 bg-blue-400"></div>
             </div>
-            <div className="text-[10px] text-indigo-100 font-bold tracking-wider">
+            <div className="text-[9px] text-indigo-100 font-medium tracking-wider">
               DOT MATRIX WITH STEREO SOUND
             </div>
-            <div className="flex gap-0.5">
-              <div className="h-1 w-6 bg-blue-400"></div>
-              <div className="h-1 w-6 bg-purple-400"></div>
+            <div className="flex flex-col gap-0.5">
+              <div className="h-0.5 w-8 bg-blue-400"></div>
+              <div className="h-0.5 w-8 bg-purple-400"></div>
             </div>
           </div>
 
@@ -94,19 +94,23 @@ const App = () => {
         <div className="px-8">
           <div className="flex justify-between items-start">
             {/* D-Pad */}
-            <div className="relative w-28 h-28 mt-2">
-              {/* Plus Button */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-8 bg-[#2a2a2a] rounded shadow-lg border-b-4 border-black active:border-b-0 active:translate-y-0.5 transition-all cursor-pointer"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-full bg-[#2a2a2a] rounded shadow-lg"></div>
+            <div className="relative w-28 h-28 mt-2 cursor-pointer group active:translate-y-0.5 transition-transform duration-100">
+              {/* Horizontal bar */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-7 bg-[#1a1a1a] rounded-sm shadow-[0_3px_0_#0a0a0a,0_4px_4px_rgba(0,0,0,0.3)] group-active:shadow-[0_1px_0_#0a0a0a,0_2px_2px_rgba(0,0,0,0.3)] transition-all"></div>
+
+              {/* Vertical bar */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-full bg-[#1a1a1a] rounded-sm shadow-[0_3px_0_#0a0a0a,0_4px_4px_rgba(0,0,0,0.3)] group-active:shadow-[0_1px_0_#0a0a0a,0_2px_2px_rgba(0,0,0,0.3)] transition-all"></div>
 
               {/* Center Indent */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[#2a2a2a] rounded-full shadow-inner border-y border-gray-700">
-                <div className="w-full h-full rounded-full bg-linear-to-br from-transparent via-transparent to-black/40"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-[#1a1a1a] rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] pointer-events-none">
+                <div className="w-full h-full rounded-full bg-linear-to-br from-[#2a2a2a]/20 via-transparent to-black/40"></div>
               </div>
 
               {/* Directional Indents */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-black/30"></div>
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-black/30"></div>
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-black/50 shadow-[0_1px_0_rgba(255,255,255,0.1)]"></div>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-black/50 shadow-[0_1px_0_rgba(255,255,255,0.1)]"></div>
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-black/50 shadow-[0_1px_0_rgba(255,255,255,0.1)]"></div>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-black/50 shadow-[0_1px_0_rgba(255,255,255,0.1)]"></div>
             </div>
 
             {/* A/B Buttons */}
